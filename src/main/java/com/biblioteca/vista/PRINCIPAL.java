@@ -29,10 +29,11 @@ public class PRINCIPAL extends javax.swing.JFrame {
     
     private Cliente cliente;
     
-    public void traerCliente(Cliente cliente){
-        this.cliente = cliente;
-        lblNombre.setText(cliente.getNomCliente());
+    public void traerCliente(Cliente clientePasado){
+        this.cliente = clientePasado;
+        lblNombre.setText(this.cliente.getNomCliente());
     }
+    
     
     void mostrarPanel(JPanel panel) {  
         panel.setSize(573, 592);
@@ -207,6 +208,7 @@ public class PRINCIPAL extends javax.swing.JFrame {
     private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
         // TODO add your handling code here:
         PanelBienvenida panelBienvenida = new PanelBienvenida();
+        //panelBienvenida.darCliente(cliente);
         mostrarPanel(panelBienvenida);
     }//GEN-LAST:event_btnPrincipalActionPerformed
 

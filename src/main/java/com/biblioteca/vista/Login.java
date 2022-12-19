@@ -24,9 +24,9 @@ public class Login extends javax.swing.JFrame {
     }
 
     PRINCIPAL principal = new PRINCIPAL();
-    
+
     JDialogRegistroCliente registro = new JDialogRegistroCliente(this, true);
-    
+
     String darCorreo() {
         return txtCorreo.getText();
     }
@@ -42,7 +42,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     public void loginCliente() {
-        if(txtCorreo.getText().equals("") || txtContraseña.getText().equals("")){
+        if (txtCorreo.getText().equals("") || txtContraseña.getText().equals("")) {
             mensaje("RELLENE TODOS LOS CAMPOS");
             txtCorreo.requestFocus();
             return;
@@ -51,7 +51,7 @@ public class Login extends javax.swing.JFrame {
             mensaje("DATOS CORRECTOS...");
             principal.setLocationRelativeTo(null);
             principal.setVisible(true);
-            principal.traerCliente(clienteDAO.traerCliente(darCorreo()));
+            principal.traerCliente(clienteDAO.validarCliente(darCorreo(), darContraseña()));
             dispose();
         } else {
             mensaje("DATOS INCORRECTOS");
@@ -171,7 +171,6 @@ public class Login extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
-        
         loginCliente();
     }//GEN-LAST:event_btnIngresarActionPerformed
 
