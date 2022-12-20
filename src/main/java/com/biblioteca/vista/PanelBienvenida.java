@@ -18,14 +18,14 @@ public class PanelBienvenida extends javax.swing.JPanel {
     public PanelBienvenida() {
 	initComponents();
     }
-    /*
+    
     private Cliente cliente;
     
     public void darCliente(Cliente cliente){
         this.cliente = cliente;
-        jLblCliente.setText("USUARIO: "+cliente.getNomCliente());
-        jLblCorreo.setText("CORREO: "+cliente.getCorreo());
-    }*/
+        jLblCliente.setText("USUARIO: "+this.cliente.getNomCliente());
+        jLblCorreo.setText("CORREO: "+this.cliente.getCorreo());
+    }
     
     
     /**

@@ -27,6 +27,7 @@ public class Login extends javax.swing.JFrame {
 
     JDialogRegistroCliente registro = new JDialogRegistroCliente(this, true);
 
+    
     String darCorreo() {
         return txtCorreo.getText();
     }
