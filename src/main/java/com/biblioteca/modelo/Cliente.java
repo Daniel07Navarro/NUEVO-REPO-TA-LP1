@@ -29,6 +29,7 @@ public class Cliente {
     private String correo;
 
     private String password;
+    
 
     public Cliente(String nomCliente, String correo, String password) {
         this.nomCliente = nomCliente;

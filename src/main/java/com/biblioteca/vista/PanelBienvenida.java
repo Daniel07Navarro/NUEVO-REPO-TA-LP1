@@ -5,6 +5,7 @@
 package com.biblioteca.vista;
 
 import com.biblioteca.modelo.Cliente;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
 
 /**
  *
@@ -17,6 +18,7 @@ public class PanelBienvenida extends javax.swing.JPanel {
      */
     public PanelBienvenida() {
 	initComponents();
+        FlatMaterialLighterIJTheme.setup();
     }
     
     private Cliente cliente;

@@ -21,6 +21,9 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("BIENVENIDO USUARIO");
+        //DE PRUEBA
+        txtCorreo.setText("daniel@gmail.com");
+        txtContraseña.setText("123");
     }
 
     PRINCIPAL principal = new PRINCIPAL();
