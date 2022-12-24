@@ -8,6 +8,7 @@ package com.biblioteca.vista;
 
 import com.biblioteca.DAO.ClienteDAO;
 import com.biblioteca.modelo.Cliente;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialDeepOceanContrastIJTheme;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -214,6 +215,8 @@ public class JDialogRegistroCliente extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_txtPasswordCliKeyReleased
 
+    
+    
     /**
      * @param args the command line arguments
      */
