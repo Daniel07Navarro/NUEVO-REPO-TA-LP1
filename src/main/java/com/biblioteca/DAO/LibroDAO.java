@@ -110,8 +110,8 @@ public class LibroDAO {
             return null;
         }
     }
-    
-    public static void reducirStock(int idLibro){
+
+    public static void reducirStock(int idLibro) {
         Connection cn = Conexion.darConexion();
         String callSP = "{CALL reducir_stock(?)}";
         try {
@@ -122,6 +122,7 @@ public class LibroDAO {
             System.out.println(e.getMessage());
         }
     }
+
 
     public static void main(String[] args) {
 

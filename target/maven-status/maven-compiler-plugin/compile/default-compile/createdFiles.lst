@@ -28,6 +28,7 @@ com\biblioteca\DAO\LibroDAO.class
 com\biblioteca\vista\Login$3.class
 com\biblioteca\vista\PanelLibros$3.class
 com\biblioteca\vista\PanelBienvenida.class
+com\biblioteca\vista\PrestamoVista$1.class
 com\biblioteca\DAO\ClienteDAO.class
 com\biblioteca\DAO\PrestamoDAO.class
 com\biblioteca\vista\ConfirmacionPrestamo$1.class

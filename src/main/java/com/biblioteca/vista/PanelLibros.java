@@ -26,16 +26,16 @@ public class PanelLibros extends javax.swing.JPanel {
     }
 
     //PrestamoVista prestamo = new PrestamoVista();
-    
     String c[] = {"Codigo", "Titulo", "Stock", "Año", "Editorial", "Autor"};
-    
+
     DefaultTableModel modelo = new DefaultTableModel(null, c);
 
     ConfirmacionPrestamo confirmar = new ConfirmacionPrestamo(null, true, this);
-    
-    void mensaje(String mensaje){
+
+    void mensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje);
-    }    
+    }
+
     void actualizarTabla(List<LibroReporte> lista) {
         for (LibroReporte libro : lista) {
             modelo.addRow(new Object[]{
@@ -47,7 +47,7 @@ public class PanelLibros extends javax.swing.JPanel {
                 libro.getNombreAutor()
             });
         }
-        
+
     }
 
     public void limpiarTableModel(DefaultTableModel model) {
@@ -78,12 +78,12 @@ public class PanelLibros extends javax.swing.JPanel {
     }
 
     Cliente cliente;
-    
-    void darCliente(Cliente cliente){
+
+    void darCliente(Cliente cliente) {
         this.cliente = cliente;
         confirmar.traerCliente(cliente);
     }
-    
+
     void darLibro() {
         int fila = jTableLibros.getSelectedRow();
         int id = (int) jTableLibros.getValueAt(fila, 0);
@@ -214,7 +214,7 @@ public class PanelLibros extends javax.swing.JPanel {
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
         // TODO add your handling code here:
         int fila = jTableLibros.getSelectedRow();
-        if(fila ==-1){
+        if (fila == -1) {
             mensaje("DEBE SELECCIONAR UN LIBRO");
             return;
         }

@@ -27,28 +27,28 @@ public class PRINCIPAL extends javax.swing.JFrame {
         setTitle("VISTA PRINCIPAL");
     }
     private Cliente cliente;
-    
+
     PanelBienvenida panelBienvenida = new PanelBienvenida();
-    
+
     PanelLibros panelLibros = new PanelLibros();
-    
-    PrestamoVista prestamoVista = new PrestamoVista();
-    
-    public void traerCliente(Cliente clientePasado){
+
+    PrestamoVista prestamoVista;
+
+    public void traerCliente(Cliente clientePasado) {
         this.cliente = clientePasado;
         panelBienvenida.darCliente(cliente);
-        //prestamoVista.traerClienteAPrestamo(clientePasado);
+        prestamoVista = new PrestamoVista(cliente);
     }
-    
-    void mostrarPanel(JPanel panel) {  
+
+    void mostrarPanel(JPanel panel) {
         panel.setSize(573, 592);
         panel.setLocation(0, 0);
         panelContenedor.removeAll();
         panelContenedor.add(panel, BorderLayout.CENTER);
         panelContenedor.revalidate();
-        panelContenedor.repaint();   
+        panelContenedor.repaint();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -226,11 +226,6 @@ public class PRINCIPAL extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
-    
-    
-   
-        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLibros;

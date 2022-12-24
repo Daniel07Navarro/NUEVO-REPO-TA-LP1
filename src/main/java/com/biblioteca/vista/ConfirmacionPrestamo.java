@@ -84,7 +84,7 @@ public class ConfirmacionPrestamo extends javax.swing.JDialog {
             txtFechaEntrega.requestFocus();
             return;
         }
-        Prestamo prestamo = new Prestamo(cliente.getIdCliente(), darCodigoLibro(), darFechaSistema(), darFechaEntrega(), "R"); //resuelto
+        Prestamo prestamo = new Prestamo(cliente.getIdCliente(), darCodigoLibro(), darFechaSistema(), darFechaEntrega(), "N"); //NO RESULTO
         LibroDAO.reducirStock(darCodigoLibro());
         PrestamoDAO.insertarPrestamo(prestamo);
         panelRef.limpiarTableModel(panelRef.modelo);

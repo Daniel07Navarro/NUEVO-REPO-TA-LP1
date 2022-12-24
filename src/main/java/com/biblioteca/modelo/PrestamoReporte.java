@@ -34,7 +34,8 @@ public class PrestamoReporte {
     
     private String nombreLibro;
 
-    public PrestamoReporte(String fechaPrestamo, String fechaEntrega, String estado, String nombreLibro) {
+    public PrestamoReporte(int idPrestamo,String fechaPrestamo, String fechaEntrega, String estado, String nombreLibro) {
+        this.idPrestamo = idPrestamo;
         this.fechaPrestamo = fechaPrestamo;
         this.fechaEntrega = fechaEntrega;
         this.estado = estado;
