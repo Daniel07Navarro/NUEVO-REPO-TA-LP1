@@ -29,9 +29,17 @@ public class PrestamoVista extends javax.swing.JPanel {
     
     void iniciarDatosPrestamos() {
         jTablePrestamos.setModel(modelo);
-        List<PrestamoReporte> prestamos = PrestamoDAO.listarPrestamosReporte(this.cliente.getIdCliente());
-        for (PrestamoReporte pr : prestamos) {
-            modelo.addRow(new Object[]{pr.getIdPrestamo(), pr.getNombreLibro(), pr.getFechaPrestamo(), pr.getFechaEntrega(), pr.getEstado()});
+        actualizarTabla(PrestamoDAO.listarPrestamosReporte(this.cliente.getIdCliente()));
+    }
+    
+    public void actualizarTabla(List<PrestamoReporte> reporte) {
+        for (PrestamoReporte pr : reporte) {
+            modelo.addRow(new Object[]{
+		pr.getIdPrestamo(),
+		pr.getNombreLibro(),
+		pr.getFechaPrestamo(),
+		pr.getFechaEntrega(),
+		pr.getEstado()});
         }
     }
     
@@ -130,6 +138,7 @@ public class PrestamoVista extends javax.swing.JPanel {
         }
         devolverLibro();
         limpiarTableModel(modelo);
+	actualizarTabla(PrestamoDAO.listarPrestamosReporte(this.cliente.getIdCliente()));
         mensaje("LIBRO DEVUELTO");
     }//GEN-LAST:event_btnDevolverActionPerformed
 
