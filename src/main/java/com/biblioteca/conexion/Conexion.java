@@ -18,7 +18,7 @@ public class Conexion {
 
     private static final String user = "root";
 
-    private static final String password = "admin";//VARIA
+    private static final String password = "1234";//VARIA
 
 
     public static Connection darConexion() {
