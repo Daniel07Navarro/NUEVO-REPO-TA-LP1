@@ -10,52 +10,52 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class PrestamoVista extends javax.swing.JPanel {
-    
+
     public PrestamoVista(Cliente cliente) {
         initComponents();
         this.cliente = cliente;
         iniciarDatosPrestamos();
     }
-    
+
     String c[] = {"Codigo", "Titulo", "Fecha Prestamo", "Fecha Entrega", "Estado"};
-    
+
     DefaultTableModel modelo = new DefaultTableModel(null, c);
-    
+
     Cliente cliente;
-    
+
     void mensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje);
     }
-    
+
     void iniciarDatosPrestamos() {
         jTablePrestamos.setModel(modelo);
         actualizarTabla(PrestamoDAO.listarPrestamosReporte(this.cliente.getIdCliente()));
     }
-    
+
     public void actualizarTabla(List<PrestamoReporte> reporte) {
         for (PrestamoReporte pr : reporte) {
             modelo.addRow(new Object[]{
-		pr.getIdPrestamo(),
-		pr.getNombreLibro(),
-		pr.getFechaPrestamo(),
-		pr.getFechaEntrega(),
-		pr.getEstado()});
+                pr.getIdPrestamo(),
+                pr.getNombreLibro(),
+                pr.getFechaPrestamo(),
+                pr.getFechaEntrega(),
+                pr.getEstado()});
         }
     }
-    
+
     public void limpiarTableModel(DefaultTableModel model) {
         int count = model.getRowCount() - 1;
         for (int i = count; i >= 0; i--) {
             model.removeRow(i);
         }
     }
-    
+
     void devolverLibro() {
         //UPDATE STOCK +1(LIBRO) Y ESTADO (PRESTAMO)
         int fila = jTablePrestamos.getSelectedRow();
         PrestamoDAO.devolverPrestamo((int) jTablePrestamos.getValueAt(fila, 0));
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -136,9 +136,13 @@ public class PrestamoVista extends javax.swing.JPanel {
             mensaje("DEBE SELECCIONAR UN LIBRO");
             return;
         }
+        if(jTablePrestamos.getValueAt(fila, 4).toString().equals("R")){
+            mensaje("EL LIBRO YA HA SIDO DEVUELTO");
+            return;
+        }
         devolverLibro();
         limpiarTableModel(modelo);
-	actualizarTabla(PrestamoDAO.listarPrestamosReporte(this.cliente.getIdCliente()));
+        actualizarTabla(PrestamoDAO.listarPrestamosReporte(this.cliente.getIdCliente()));
         mensaje("LIBRO DEVUELTO");
     }//GEN-LAST:event_btnDevolverActionPerformed
 
