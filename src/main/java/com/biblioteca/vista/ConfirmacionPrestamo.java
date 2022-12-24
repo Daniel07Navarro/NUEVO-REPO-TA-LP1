@@ -25,10 +25,13 @@ public class ConfirmacionPrestamo extends javax.swing.JDialog {
     /**
      * Creates new form ConfirmacionPrestamo
      */
-    public ConfirmacionPrestamo(java.awt.Frame parent, boolean modal) {
+    PanelLibros panelRef;
+    
+    public ConfirmacionPrestamo(java.awt.Frame parent, boolean modal, PanelLibros panelRef) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+	this.panelRef = panelRef;
     }
 
     int darCodigoLibro() {
@@ -84,6 +87,7 @@ public class ConfirmacionPrestamo extends javax.swing.JDialog {
         Prestamo prestamo = new Prestamo(cliente.getIdCliente(), darCodigoLibro(), darFechaSistema(), darFechaEntrega(), "R"); //resuelto
         LibroDAO.reducirStock(darCodigoLibro());
         PrestamoDAO.insertarPrestamo(prestamo);
+	panelRef.actualizarTabla(LibroDAO.listarLibros());
     }
 
     /**

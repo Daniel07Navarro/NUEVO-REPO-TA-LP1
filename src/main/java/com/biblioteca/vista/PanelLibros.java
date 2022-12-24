@@ -31,7 +31,7 @@ public class PanelLibros extends javax.swing.JPanel {
     
     DefaultTableModel modelo = new DefaultTableModel(null, c);
 
-    ConfirmacionPrestamo confirmar = new ConfirmacionPrestamo(null, true);
+    ConfirmacionPrestamo confirmar = new ConfirmacionPrestamo(null, true, this);
     
     void mensaje(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje);
