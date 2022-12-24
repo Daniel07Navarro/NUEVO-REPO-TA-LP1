@@ -87,6 +87,7 @@ public class ConfirmacionPrestamo extends javax.swing.JDialog {
         Prestamo prestamo = new Prestamo(cliente.getIdCliente(), darCodigoLibro(), darFechaSistema(), darFechaEntrega(), "R"); //resuelto
         LibroDAO.reducirStock(darCodigoLibro());
         PrestamoDAO.insertarPrestamo(prestamo);
+        panelRef.limpiarTableModel(panelRef.modelo);
 	panelRef.actualizarTabla(LibroDAO.listarLibros());
     }
 

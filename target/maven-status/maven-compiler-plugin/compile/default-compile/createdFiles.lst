@@ -1,5 +1,6 @@
 com\biblioteca\modelo\LibroReporte.class
 com\biblioteca\modelo\Libro.class
+com\biblioteca\modelo\PrestamoReporte.class
 com\biblioteca\modelo\Cliente.class
 com\biblioteca\modelo\Prestamo.class
 com\biblioteca\vista\Login$4.class

@@ -21,19 +21,19 @@ import lombok.Setter;
 public class LibroReporte {
 
     private Integer idLibro;
-    
+
     private String titulo;
-    
+
     private int stock;
-    
+
     private int anio;
-    
+
     private int idEditorial;
-    
+
     private int idAutor;
-    
+
     private String nombreEditorial;
-    
+
     private String nombreAutor;
 
     public LibroReporte(Integer idLibro, String titulo, int stock, int anio, String nombreEditorial, String nombreAutor) {
@@ -58,6 +58,5 @@ public class LibroReporte {
     public String toString() {
         return "Libro{" + "idLibro=" + idLibro + ", titulo=" + titulo + ", stock=" + stock + ", anio=" + anio + ", nombreEditorial=" + nombreEditorial + ", nombreAutor=" + nombreAutor + '}';
     }
-    
-    
+
 }

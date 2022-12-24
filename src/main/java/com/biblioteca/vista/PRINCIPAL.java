@@ -26,16 +26,18 @@ public class PRINCIPAL extends javax.swing.JFrame {
         FlatMaterialLighterIJTheme.setup();
         setTitle("VISTA PRINCIPAL");
     }
+    private Cliente cliente;
     
     PanelBienvenida panelBienvenida = new PanelBienvenida();
     
     PanelLibros panelLibros = new PanelLibros();
     
-    private Cliente cliente;
+    PrestamoVista prestamoVista = new PrestamoVista();
     
     public void traerCliente(Cliente clientePasado){
         this.cliente = clientePasado;
         panelBienvenida.darCliente(cliente);
+        //prestamoVista.traerClienteAPrestamo(clientePasado);
     }
     
     void mostrarPanel(JPanel panel) {  
@@ -61,7 +63,7 @@ public class PRINCIPAL extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btnPrincipal = new javax.swing.JButton();
         btnLibros = new javax.swing.JButton();
-        btnLibros1 = new javax.swing.JButton();
+        btnPrestamos = new javax.swing.JButton();
         btnLibros2 = new javax.swing.JButton();
         panelContenedor = new javax.swing.JPanel();
 
@@ -110,16 +112,16 @@ public class PRINCIPAL extends javax.swing.JFrame {
             }
         });
 
-        btnLibros1.setBackground(new java.awt.Color(47, 100, 183));
-        btnLibros1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnLibros1.setForeground(new java.awt.Color(255, 255, 255));
-        btnLibros1.setText("PRESTAMOS");
-        btnLibros1.setBorder(null);
-        btnLibros1.setBorderPainted(false);
-        btnLibros1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnLibros1.addActionListener(new java.awt.event.ActionListener() {
+        btnPrestamos.setBackground(new java.awt.Color(47, 100, 183));
+        btnPrestamos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnPrestamos.setForeground(new java.awt.Color(255, 255, 255));
+        btnPrestamos.setText("PRESTAMOS");
+        btnPrestamos.setBorder(null);
+        btnPrestamos.setBorderPainted(false);
+        btnPrestamos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPrestamos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLibros1ActionPerformed(evt);
+                btnPrestamosActionPerformed(evt);
             }
         });
 
@@ -142,7 +144,7 @@ public class PRINCIPAL extends javax.swing.JFrame {
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnLibros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnLibros1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(menuLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabel1)
@@ -165,7 +167,7 @@ public class PRINCIPAL extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(btnLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(btnLibros1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(74, 74, 74)
                 .addComponent(btnLibros2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(46, Short.MAX_VALUE))
@@ -212,9 +214,10 @@ public class PRINCIPAL extends javax.swing.JFrame {
         mostrarPanel(panelLibros);
     }//GEN-LAST:event_btnLibrosActionPerformed
 
-    private void btnLibros1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibros1ActionPerformed
+    private void btnPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrestamosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLibros1ActionPerformed
+        mostrarPanel(prestamoVista);
+    }//GEN-LAST:event_btnPrestamosActionPerformed
 
     private void btnLibros2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibros2ActionPerformed
         // TODO add your handling code here:
@@ -231,8 +234,8 @@ public class PRINCIPAL extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLibros;
-    private javax.swing.JButton btnLibros1;
     private javax.swing.JButton btnLibros2;
+    private javax.swing.JButton btnPrestamos;
     private javax.swing.JButton btnPrincipal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
