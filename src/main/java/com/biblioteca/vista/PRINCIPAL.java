@@ -46,11 +46,8 @@ public class PRINCIPAL extends javax.swing.JFrame {
         panelContenedor.removeAll();
         panelContenedor.add(panel, BorderLayout.CENTER);
         panelContenedor.revalidate();
-        panelContenedor.repaint();
-        
+        panelContenedor.repaint();   
     }
-
-    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -169,9 +166,9 @@ public class PRINCIPAL extends javax.swing.JFrame {
                 .addComponent(btnPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(btnLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGap(28, 28, 28)
                 .addComponent(btnLibros1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(74, 74, 74)
                 .addComponent(btnLibros2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(46, Short.MAX_VALUE))
         );

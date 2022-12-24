@@ -1,9 +1,11 @@
 package com.biblioteca.vista;
 
 import com.biblioteca.DAO.LibroDAO;
+import com.biblioteca.modelo.Libro;
 import com.biblioteca.modelo.LibroReporte;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class PanelLibros extends javax.swing.JPanel {
@@ -21,47 +23,63 @@ public class PanelLibros extends javax.swing.JPanel {
     String darAutor() {
         return txtAutor.getText();
     }
-    String c[] = {"Codigo", "Titulo", "Stock","Año", "Editorial", "Autor"};
+
+    Prestamo prestamo = new Prestamo();
+    
+    String c[] = {"Codigo", "Titulo", "Stock", "Año", "Editorial", "Autor"};
+    
     DefaultTableModel modelo = new DefaultTableModel(null, c);
 
+    ConfirmacionPrestamo confirmar = new ConfirmacionPrestamo(null, true);
+    
+    void mensaje(String mensaje){
+        JOptionPane.showMessageDialog(this, mensaje);
+    }    
     void actualizarTabla(List<LibroReporte> lista) {
-	for(LibroReporte libro: lista){
+        for (LibroReporte libro : lista) {
             modelo.addRow(new Object[]{
-		libro.getIdLibro(),
-		libro.getTitulo(),
-		libro.getStock(),
-		libro.getAnio(),
-		libro.getNombreEditorial(),
-		libro.getNombreAutor()
-	    });
+                libro.getIdLibro(),
+                libro.getTitulo(),
+                libro.getStock(),
+                libro.getAnio(),
+                libro.getNombreEditorial(),
+                libro.getNombreAutor()
+            });
         }
     }
-    
+
     public void limpiarTableModel(DefaultTableModel model) {
-	int count = model.getRowCount() - 1;
-	for (int i = count; i >= 0; i--) {
-	    model.removeRow(i);
-	}
+        int count = model.getRowCount() - 1;
+        for (int i = count; i >= 0; i--) {
+            model.removeRow(i);
+        }
     }
-    
+
     void iniciarTabla() {
         jTableLibros.setModel(modelo);
         List<LibroReporte> libros = LibroDAO.listarLibros();
         actualizarTabla(libros);
     }
-    
+
     void buscarPorTitulo() {
-	String titulo = txtTitulo.getText();
-	List<LibroReporte> libros = LibroDAO.listarLibrosByTitulo(titulo);
-	limpiarTableModel(modelo);
+        String titulo = txtTitulo.getText();
+        List<LibroReporte> libros = LibroDAO.listarLibrosByTitulo(titulo);
+        limpiarTableModel(modelo);
         actualizarTabla(libros);
     }
-    
+
     void buscarPorAutor() {
-	String autor = txtAutor.getText();
-	List<LibroReporte> libros = LibroDAO.listarLibrosByNombreAutor(autor);
+        String autor = txtAutor.getText();
+        List<LibroReporte> libros = LibroDAO.listarLibrosByNombreAutor(autor);
         limpiarTableModel(modelo);
-	actualizarTabla(libros);
+        actualizarTabla(libros);
+    }
+
+    void darLibro() {
+        int fila = jTableLibros.getSelectedRow();
+        int id = (int) jTableLibros.getValueAt(fila, 0);
+        Libro libro = LibroDAO.darLibro(id);
+        confirmar.traerLibro(libro);
     }
 
     @SuppressWarnings("unchecked")
@@ -81,6 +99,11 @@ public class PanelLibros extends javax.swing.JPanel {
         setEnabled(false);
 
         btnagregar.setText("Añadir a Canasta");
+        btnagregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnagregarActionPerformed(evt);
+            }
+        });
 
         jTableLibros.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jTableLibros.setModel(new javax.swing.table.DefaultTableModel(
@@ -171,13 +194,24 @@ public class PanelLibros extends javax.swing.JPanel {
 
     private void txtTituloKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTituloKeyReleased
         // TODO add your handling code here:
-	buscarPorTitulo();
+        buscarPorTitulo();
     }//GEN-LAST:event_txtTituloKeyReleased
 
     private void txtAutorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAutorKeyReleased
         // TODO add your handling code here:
-	buscarPorAutor();
+        buscarPorAutor();
     }//GEN-LAST:event_txtAutorKeyReleased
+
+    private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
+        // TODO add your handling code here:
+        int fila = jTableLibros.getSelectedRow();
+        if(fila ==-1){
+            mensaje("DEBE SELECCIONAR UN LIBRO");
+            return;
+        }
+        darLibro();
+        confirmar.setVisible(true);
+    }//GEN-LAST:event_btnagregarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
