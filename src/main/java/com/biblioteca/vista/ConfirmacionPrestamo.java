@@ -5,9 +5,13 @@
  */
 package com.biblioteca.vista;
 
+import com.biblioteca.modelo.Cliente;
 import com.biblioteca.modelo.Libro;
+import com.biblioteca.modelo.Prestamo;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -24,7 +28,26 @@ public class ConfirmacionPrestamo extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }
 
+    int darCodigoLibro() {
+        return Integer.parseInt(txtCodigo.getText());
+    }
+
+    String darFechaEntrega() {
+        return txtFechaEntrega.getText();
+    }
+
     Libro libro;
+
+    Cliente cliente;
+// EXPRESION REGULAR PARA VALIDAR LA FECHA yyyy-MM-DD
+    public static final Pattern VALIDAR_FECHA_EXPRESION_REGULAR = Pattern.compile(
+            "^((19|20)\\d\\d)-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$",
+            Pattern.CASE_INSENSITIVE);
+
+    public static boolean validarFecha(String fecha) {
+        Matcher matcher = VALIDAR_FECHA_EXPRESION_REGULAR.matcher(fecha);
+        return matcher.find();
+    }
 
     void traerLibro(Libro libro) {
         this.libro = libro;
@@ -32,17 +55,22 @@ public class ConfirmacionPrestamo extends javax.swing.JDialog {
         txtTitulo.setText(this.libro.getTitulo());
         txtFechaSistema.setText(darFechaSistema());
     }
-    
+
+    void traerCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
     public static String darFechaSistema() {
         Date date = new Date();
         SimpleDateFormat fecha = new SimpleDateFormat("YYYY-MM-dd");
         return fecha.format(date);
     }
-    
-    String darFechaEntrega(){
-        return txtFechaEntrega.getText();
+
+    //PARA PODER INSERTAR
+    void insertarPrestamo() {
+        Prestamo prestamo = new Prestamo(cliente.getIdCliente(), darCodigoLibro(), darFechaSistema(), darFechaEntrega(), "A");
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,6 +107,11 @@ public class ConfirmacionPrestamo extends javax.swing.JDialog {
         jLabel5.setText("FECHA DE ENTREGA");
 
         btnConfirmar.setText("CONFIRMAR");
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
+            }
+        });
 
         btnCancel.setText("CANCELAR");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +159,7 @@ public class ConfirmacionPrestamo extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,10 +220,14 @@ public class ConfirmacionPrestamo extends javax.swing.JDialog {
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelActionPerformed
 
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        // TODO add your handling code here:
+        insertarPrestamo();
+    }//GEN-LAST:event_btnConfirmarActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;

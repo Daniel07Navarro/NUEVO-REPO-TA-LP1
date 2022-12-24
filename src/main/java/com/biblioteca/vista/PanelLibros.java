@@ -1,6 +1,7 @@
 package com.biblioteca.vista;
 
 import com.biblioteca.DAO.LibroDAO;
+import com.biblioteca.modelo.Cliente;
 import com.biblioteca.modelo.Libro;
 import com.biblioteca.modelo.LibroReporte;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
@@ -24,7 +25,7 @@ public class PanelLibros extends javax.swing.JPanel {
         return txtAutor.getText();
     }
 
-    Prestamo prestamo = new Prestamo();
+    PrestamoVista prestamo = new PrestamoVista();
     
     String c[] = {"Codigo", "Titulo", "Stock", "Año", "Editorial", "Autor"};
     
@@ -75,6 +76,13 @@ public class PanelLibros extends javax.swing.JPanel {
         actualizarTabla(libros);
     }
 
+    Cliente cliente;
+    
+    void darCliente(Cliente cliente){
+        this.cliente = cliente;
+        confirmar.traerCliente(cliente);
+    }
+    
     void darLibro() {
         int fila = jTableLibros.getSelectedRow();
         int id = (int) jTableLibros.getValueAt(fila, 0);

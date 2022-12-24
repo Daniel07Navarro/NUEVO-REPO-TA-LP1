@@ -38,8 +38,6 @@ public class PRINCIPAL extends javax.swing.JFrame {
         panelBienvenida.darCliente(cliente);
     }
     
-    
-    
     void mostrarPanel(JPanel panel) {  
         panel.setSize(573, 592);
         panel.setLocation(0, 0);
@@ -210,6 +208,7 @@ public class PRINCIPAL extends javax.swing.JFrame {
 
     private void btnLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibrosActionPerformed
         // TODO add your handling code here:
+        panelLibros.darCliente(this.cliente);
         mostrarPanel(panelLibros);
     }//GEN-LAST:event_btnLibrosActionPerformed
 

@@ -11,6 +11,7 @@ com\biblioteca\vista\Login$2.class
 com\biblioteca\vista\Login$5.class
 com\biblioteca\conexion\Conexion.class
 com\biblioteca\vista\ConfirmacionPrestamo.class
+com\biblioteca\vista\ConfirmacionPrestamo$2.class
 com\biblioteca\vista\PRINCIPAL$1.class
 com\biblioteca\vista\JDialogRegistroCliente$1.class
 com\biblioteca\vista\JDialogRegistroCliente$4.class

@@ -2,9 +2,9 @@ package com.biblioteca.vista;
 
 import com.biblioteca.modelo.Libro;
 
-public class Prestamo extends javax.swing.JPanel {
+public class PrestamoVista extends javax.swing.JPanel {
 
-    public Prestamo() {
+    public PrestamoVista() {
         initComponents();
     }
 
