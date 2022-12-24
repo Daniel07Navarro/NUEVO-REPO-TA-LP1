@@ -24,15 +24,45 @@ public class PanelLibros extends javax.swing.JPanel {
     String c[] = {"Codigo", "Titulo", "Stock","Año", "Editorial", "Autor"};
     DefaultTableModel modelo = new DefaultTableModel(null, c);
 
-    void iniciarTabla() {
-        jTableLibros.setModel(modelo);
-        List<LibroReporte> libros = LibroDAO.listarLibros();
-        for(LibroReporte libro: libros){
-            modelo.addRow(new Object[]{libro.getIdLibro(),libro.getTitulo(),libro.getStock(),libro.getAnio(),libro.getNombreEditorial(),libro.getNombreAutor()});
+    void actualizarTabla(List<LibroReporte> lista) {
+	for(LibroReporte libro: lista){
+            modelo.addRow(new Object[]{
+		libro.getIdLibro(),
+		libro.getTitulo(),
+		libro.getStock(),
+		libro.getAnio(),
+		libro.getNombreEditorial(),
+		libro.getNombreAutor()
+	    });
         }
     }
     
+    public void limpiarTableModel(DefaultTableModel model) {
+	int count = model.getRowCount() - 1;
+	for (int i = count; i >= 0; i--) {
+	    model.removeRow(i);
+	}
+    }
     
+    void iniciarTabla() {
+        jTableLibros.setModel(modelo);
+        List<LibroReporte> libros = LibroDAO.listarLibros();
+        actualizarTabla(libros);
+    }
+    
+    void buscarPorTitulo() {
+	String titulo = txtTitulo.getText();
+	List<LibroReporte> libros = LibroDAO.listarLibrosByTitulo(titulo);
+	limpiarTableModel(modelo);
+        actualizarTabla(libros);
+    }
+    
+    void buscarPorAutor() {
+	String autor = txtAutor.getText();
+	List<LibroReporte> libros = LibroDAO.listarLibrosByNombreAutor(autor);
+        limpiarTableModel(modelo);
+	actualizarTabla(libros);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -69,6 +99,18 @@ public class PanelLibros extends javax.swing.JPanel {
         lblCatalogoLib.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
         lblCatalogoLib.setForeground(new java.awt.Color(47, 100, 183));
         lblCatalogoLib.setText("CATALOGO LIBROS");
+
+        txtTitulo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTituloKeyReleased(evt);
+            }
+        });
+
+        txtAutor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtAutorKeyReleased(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(47, 100, 183));
@@ -126,6 +168,16 @@ public class PanelLibros extends javax.swing.JPanel {
                 .addGap(25, 25, 25))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtTituloKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTituloKeyReleased
+        // TODO add your handling code here:
+	buscarPorTitulo();
+    }//GEN-LAST:event_txtTituloKeyReleased
+
+    private void txtAutorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAutorKeyReleased
+        // TODO add your handling code here:
+	buscarPorAutor();
+    }//GEN-LAST:event_txtAutorKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
