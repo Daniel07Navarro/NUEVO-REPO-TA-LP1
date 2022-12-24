@@ -8,6 +8,7 @@ package com.biblioteca.DAO;
 import com.biblioteca.conexion.Conexion;
 import com.biblioteca.modelo.Libro;
 import com.biblioteca.modelo.LibroReporte;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -107,6 +108,18 @@ public class LibroDAO {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
+        }
+    }
+    
+    public static void reducirStock(int idLibro){
+        Connection cn = Conexion.darConexion();
+        String callSP = "{CALL reducir_stock(?)}";
+        try {
+            CallableStatement cs = cn.prepareCall(callSP);
+            cs.setInt(1, idLibro);
+            cs.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 

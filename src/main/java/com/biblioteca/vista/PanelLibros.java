@@ -47,6 +47,7 @@ public class PanelLibros extends javax.swing.JPanel {
                 libro.getNombreAutor()
             });
         }
+        
     }
 
     public void limpiarTableModel(DefaultTableModel model) {

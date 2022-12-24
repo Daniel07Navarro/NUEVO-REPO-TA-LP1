@@ -5,6 +5,8 @@
  */
 package com.biblioteca.vista;
 
+import com.biblioteca.DAO.LibroDAO;
+import com.biblioteca.DAO.PrestamoDAO;
 import com.biblioteca.modelo.Cliente;
 import com.biblioteca.modelo.Libro;
 import com.biblioteca.modelo.Prestamo;
@@ -12,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,7 +38,12 @@ public class ConfirmacionPrestamo extends javax.swing.JDialog {
     String darFechaEntrega() {
         return txtFechaEntrega.getText();
     }
-
+    
+    void mensaje(String mensaje){
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
+    
+    
     Libro libro;
 
     Cliente cliente;
@@ -68,7 +76,14 @@ public class ConfirmacionPrestamo extends javax.swing.JDialog {
 
     //PARA PODER INSERTAR
     void insertarPrestamo() {
-        Prestamo prestamo = new Prestamo(cliente.getIdCliente(), darCodigoLibro(), darFechaSistema(), darFechaEntrega(), "A");
+        if(!validarFecha(darFechaEntrega())){
+            mensaje("LA FECHA DEBE TENER UN FORMATO CORRECTO");
+            txtFechaEntrega.requestFocus();
+            return;
+        }
+        Prestamo prestamo = new Prestamo(cliente.getIdCliente(), darCodigoLibro(), darFechaSistema(), darFechaEntrega(), "R"); //resuelto
+        LibroDAO.reducirStock(darCodigoLibro());
+        PrestamoDAO.insertarPrestamo(prestamo);
     }
 
     /**
@@ -223,6 +238,8 @@ public class ConfirmacionPrestamo extends javax.swing.JDialog {
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
         // TODO add your handling code here:
         insertarPrestamo();
+        mensaje("PRESTAMO ACEPTADO");
+        this.setVisible(false);
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     /**
