@@ -66,14 +66,13 @@ public class PRINCIPAL extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btnPrincipal = new javax.swing.JButton();
         btnLibros = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         btnLibros1 = new javax.swing.JButton();
         btnLibros2 = new javax.swing.JButton();
         panelContenedor = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        menu.setBackground(new java.awt.Color(51, 51, 255));
+        menu.setBackground(new java.awt.Color(47, 123, 229));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -83,14 +82,16 @@ public class PRINCIPAL extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 178, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 8, Short.MAX_VALUE)
         );
 
-        btnPrincipal.setBackground(new java.awt.Color(51, 51, 51));
+        btnPrincipal.setBackground(new java.awt.Color(47, 100, 183));
+        btnPrincipal.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         btnPrincipal.setText("PRINCIPAL");
         btnPrincipal.setBorder(null);
         btnPrincipal.setBorderPainted(false);
@@ -101,7 +102,9 @@ public class PRINCIPAL extends javax.swing.JFrame {
             }
         });
 
-        btnLibros.setBackground(new java.awt.Color(51, 51, 51));
+        btnLibros.setBackground(new java.awt.Color(47, 100, 183));
+        btnLibros.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnLibros.setForeground(new java.awt.Color(255, 255, 255));
         btnLibros.setText("LIBROS");
         btnLibros.setBorder(null);
         btnLibros.setBorderPainted(false);
@@ -112,10 +115,9 @@ public class PRINCIPAL extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel2.setText("BIENVENIDO");
-
-        btnLibros1.setBackground(new java.awt.Color(51, 51, 51));
+        btnLibros1.setBackground(new java.awt.Color(47, 100, 183));
+        btnLibros1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnLibros1.setForeground(new java.awt.Color(255, 255, 255));
         btnLibros1.setText("PRESTAMOS");
         btnLibros1.setBorder(null);
         btnLibros1.setBorderPainted(false);
@@ -126,7 +128,9 @@ public class PRINCIPAL extends javax.swing.JFrame {
             }
         });
 
-        btnLibros2.setBackground(new java.awt.Color(51, 51, 51));
+        btnLibros2.setBackground(new java.awt.Color(47, 100, 183));
+        btnLibros2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnLibros2.setForeground(new java.awt.Color(255, 255, 255));
         btnLibros2.setText("CERRAR SESION");
         btnLibros2.setBorder(null);
         btnLibros2.setBorderPainted(false);
@@ -145,28 +149,19 @@ public class PRINCIPAL extends javax.swing.JFrame {
             .addComponent(btnLibros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnLibros1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(menuLayout.createSequentialGroup()
-                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(menuLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(menuLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(menuLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel1)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(jLabel1)
+                .addContainerGap(53, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnLibros2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
+                .addGap(33, 33, 33))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         menuLayout.setVerticalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(51, 51, 51)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,7 +173,7 @@ public class PRINCIPAL extends javax.swing.JFrame {
                 .addComponent(btnLibros1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addComponent(btnLibros2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelContenedorLayout = new javax.swing.GroupLayout(panelContenedor);
@@ -244,7 +239,6 @@ public class PRINCIPAL extends javax.swing.JFrame {
     private javax.swing.JButton btnLibros2;
     private javax.swing.JButton btnPrincipal;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel menu;
     private javax.swing.JPanel panelContenedor;
