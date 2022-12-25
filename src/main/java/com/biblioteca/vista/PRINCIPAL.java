@@ -48,7 +48,11 @@ public class PRINCIPAL extends javax.swing.JFrame {
         panelContenedor.revalidate();
         panelContenedor.repaint();
     }
-
+    
+    void cerrarSesion(){
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -221,6 +225,7 @@ public class PRINCIPAL extends javax.swing.JFrame {
 
     private void btnLibros2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibros2ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnLibros2ActionPerformed
 
     /**

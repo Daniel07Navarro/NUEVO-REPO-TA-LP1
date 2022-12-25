@@ -8,6 +8,7 @@ com\biblioteca\vista\JDialogRegistroCliente.class
 com\biblioteca\vista\JDialogRegistroCliente$3.class
 com\biblioteca\vista\PRINCIPAL$3.class
 com\biblioteca\vista\PanelLibros$2.class
+com\biblioteca\modelo\Editorial.class
 com\biblioteca\vista\Login.class
 com\biblioteca\vista\Login$2.class
 com\biblioteca\vista\Login$5.class
@@ -15,6 +16,7 @@ com\biblioteca\vista\PrestamoVista.class
 com\biblioteca\conexion\Conexion.class
 com\biblioteca\vista\ConfirmacionPrestamo.class
 com\biblioteca\vista\ConfirmacionPrestamo$2.class
+com\biblioteca\modelo\Autor.class
 com\biblioteca\vista\PRINCIPAL$1.class
 com\biblioteca\vista\JDialogRegistroCliente$1.class
 com\biblioteca\vista\JDialogRegistroCliente$4.class

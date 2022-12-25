@@ -218,6 +218,10 @@ public class PanelLibros extends javax.swing.JPanel {
             mensaje("DEBE SELECCIONAR UN LIBRO");
             return;
         }
+        if ((int) jTableLibros.getValueAt(fila, 2) == 0) {
+            mensaje("LIBRO AGOTADO");
+            return;
+        }
         darLibro();
         confirmar.setVisible(true);
     }//GEN-LAST:event_btnagregarActionPerformed

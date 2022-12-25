@@ -123,7 +123,6 @@ public class LibroDAO {
         }
     }
 
-
     public static void main(String[] args) {
 
         Libro libro = LibroDAO.darLibro(1);
