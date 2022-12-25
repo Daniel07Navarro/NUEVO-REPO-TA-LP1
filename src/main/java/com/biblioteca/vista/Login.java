@@ -26,7 +26,7 @@ public class Login extends javax.swing.JFrame {
         txtContraseña.setText("123");
     }
 
-    PRINCIPAL principal = new PRINCIPAL();
+    PRINCIPAL principal = new PRINCIPAL(this);
 
     JDialogRegistroCliente registro = new JDialogRegistroCliente(this, true);
 
@@ -55,7 +55,7 @@ public class Login extends javax.swing.JFrame {
             principal.setLocationRelativeTo(null);
             principal.setVisible(true);
             principal.traerCliente(clienteDAO.validarCliente(darCorreo(), darContraseña()));
-            dispose();
+            this.setVisible(false);
         } else {
             mensaje("DATOS INCORRECTOS");
             txtCorreo.requestFocus();

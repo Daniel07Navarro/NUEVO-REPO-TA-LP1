@@ -19,13 +19,17 @@ public class PRINCIPAL extends javax.swing.JFrame {
     /**
      * Creates new form PRINCIPAL
      */
-    public PRINCIPAL() {
+    public PRINCIPAL(Login refLogin) {
         initComponents();
         setLocationRelativeTo(null);
         mostrarPanel(panelBienvenida);
         FlatMaterialLighterIJTheme.setup();
         setTitle("VISTA PRINCIPAL");
+	this.refLogin = refLogin;
     }
+    
+    private Login refLogin;
+    
     private Cliente cliente;
 
     PanelBienvenida panelBienvenida = new PanelBienvenida();
@@ -50,7 +54,8 @@ public class PRINCIPAL extends javax.swing.JFrame {
     }
     
     void cerrarSesion(){
-        
+	this.setVisible(false);
+        refLogin.setVisible(true);
     }
     
     /**
@@ -225,7 +230,7 @@ public class PRINCIPAL extends javax.swing.JFrame {
 
     private void btnLibros2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibros2ActionPerformed
         // TODO add your handling code here:
-        
+        cerrarSesion();
     }//GEN-LAST:event_btnLibros2ActionPerformed
 
     /**
