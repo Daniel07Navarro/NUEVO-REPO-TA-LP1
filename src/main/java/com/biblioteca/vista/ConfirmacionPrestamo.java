@@ -32,6 +32,9 @@ public class ConfirmacionPrestamo extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
 	this.panelRef = panelRef;
+	txtCodigo.setEditable(false);
+	txtFechaSistema.setEditable(false);
+	txtTitulo.setEditable(false);
     }
 
     int darCodigoLibro() {
@@ -141,16 +144,10 @@ public class ConfirmacionPrestamo extends javax.swing.JDialog {
         });
 
         txtCodigo.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        txtCodigo.setForeground(new java.awt.Color(0, 0, 0));
-        txtCodigo.setEnabled(false);
 
         txtTitulo.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        txtTitulo.setForeground(new java.awt.Color(0, 0, 0));
-        txtTitulo.setEnabled(false);
 
         txtFechaSistema.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        txtFechaSistema.setForeground(new java.awt.Color(0, 0, 0));
-        txtFechaSistema.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
