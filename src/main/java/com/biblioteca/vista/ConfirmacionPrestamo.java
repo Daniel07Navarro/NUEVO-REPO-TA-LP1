@@ -49,7 +49,6 @@ public class ConfirmacionPrestamo extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(this, mensaje);
     }
     
-    
     Libro libro;
 
     Cliente cliente;
@@ -80,6 +79,10 @@ public class ConfirmacionPrestamo extends javax.swing.JDialog {
         return fecha.format(date);
     }
 
+    void limpiar(){
+        txtFechaEntrega.setText("");
+    }
+    
     //PARA PODER INSERTAR
     void insertarPrestamo() {
         if(!validarFecha(darFechaEntrega())){
@@ -92,6 +95,8 @@ public class ConfirmacionPrestamo extends javax.swing.JDialog {
         PrestamoDAO.insertarPrestamo(prestamo);
         panelRef.limpiarTableModel(panelRef.modelo);
 	panelRef.actualizarTabla(LibroDAO.listarLibros());
+        mensaje("PRESTAMO ACEPTADO");
+        this.setVisible(false);
     }
 
     /**
@@ -235,13 +240,13 @@ public class ConfirmacionPrestamo extends javax.swing.JDialog {
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
+        limpiar();
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
         // TODO add your handling code here:
         insertarPrestamo();
-        mensaje("PRESTAMO ACEPTADO");
-        this.setVisible(false);
+        limpiar();
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     /**

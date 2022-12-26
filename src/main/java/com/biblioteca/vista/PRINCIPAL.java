@@ -38,6 +38,10 @@ public class PRINCIPAL extends javax.swing.JFrame {
 
     PrestamoVista prestamoVista;
 
+    public void mostrarBienvenida(){
+        mostrarPanel(panelBienvenida);
+    }
+    
     public void traerCliente(Cliente clientePasado) {
         this.cliente = clientePasado;
         panelBienvenida.darCliente(cliente);
@@ -225,12 +229,14 @@ public class PRINCIPAL extends javax.swing.JFrame {
 
     private void btnPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrestamosActionPerformed
         // TODO add your handling code here:
+        prestamoVista.ponerDatosTabla();
         mostrarPanel(prestamoVista);
     }//GEN-LAST:event_btnPrestamosActionPerformed
 
     private void btnLibros2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibros2ActionPerformed
         // TODO add your handling code here:
         cerrarSesion();
+        refLogin.limpiarDatos();
     }//GEN-LAST:event_btnLibros2ActionPerformed
 
     /**

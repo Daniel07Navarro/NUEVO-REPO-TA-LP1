@@ -17,19 +17,18 @@ public class PanelBienvenida extends javax.swing.JPanel {
      * Creates new form PanelBienvenida
      */
     public PanelBienvenida() {
-	initComponents();
+        initComponents();
         FlatMaterialLighterIJTheme.setup();
     }
-    
+
     private Cliente cliente;
-    
-    public void darCliente(Cliente cliente){
+
+    public void darCliente(Cliente cliente) {
         this.cliente = cliente;
-        jLblCliente.setText("USUARIO: "+this.cliente.getNomCliente());
-        jLblCorreo.setText("CORREO: "+this.cliente.getCorreo());
+        jLblCliente.setText("USUARIO: " + this.cliente.getNomCliente());
+        jLblCorreo.setText("CORREO: " + this.cliente.getCorreo());
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

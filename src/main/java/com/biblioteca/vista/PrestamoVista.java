@@ -26,6 +26,11 @@ public class PrestamoVista extends javax.swing.JPanel {
     void mensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje);
     }
+    
+    void ponerDatosTabla(){
+        limpiarTableModel(modelo);
+        actualizarTabla(PrestamoDAO.listarPrestamosReporte(this.cliente.getIdCliente()));
+    }
 
     void iniciarDatosPrestamos() {
         jTablePrestamos.setModel(modelo);
@@ -140,7 +145,7 @@ public class PrestamoVista extends javax.swing.JPanel {
             mensaje("DEBE SELECCIONAR UN LIBRO");
             return;
         }
-        if (jTablePrestamos.getValueAt(fila, 4).toString().equals("R")) {
+        if (jTablePrestamos.getValueAt(fila, 4).toString().equals("R")) { //RESUELTO
             mensaje("EL LIBRO YA HA SIDO DEVUELTO");
             return;
         }

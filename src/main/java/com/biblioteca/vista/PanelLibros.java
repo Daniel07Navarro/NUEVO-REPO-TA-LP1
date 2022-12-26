@@ -25,7 +25,7 @@ public class PanelLibros extends javax.swing.JPanel {
         return txtAutor.getText();
     }
 
-    //PrestamoVista prestamo = new PrestamoVista();
+   
     String c[] = {"Codigo", "Titulo", "Stock", "Año", "Editorial", "Autor"};
 
     DefaultTableModel modelo = new DefaultTableModel(null, c);

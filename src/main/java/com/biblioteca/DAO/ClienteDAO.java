@@ -17,11 +17,11 @@ import java.sql.ResultSet;
  */
 public class ClienteDAO {
 
-    private static final String SQL_SELECT = "SELECT * FROM CLIENTE WHERE CORREO = ? AND PASSWORD = ?";
-
     private static final String SQL_INSERT = "INSERT INTO cliente (nomCliente,correo,password) values (?,?,?)";
 
     private static final String SQL_SELECT_V2 = "SELECT * FROM CLIENTE WHERE CORREO = ?";
+
+    private static final String SQL_SELECT = "SELECT * FROM CLIENTE WHERE CORREO = ? AND PASSWORD = ?";
 
     public Cliente validarCliente(String correo, String password) {
         Connection cn = Conexion.darConexion();

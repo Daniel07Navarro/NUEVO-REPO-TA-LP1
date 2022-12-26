@@ -201,8 +201,6 @@ public class JDialogRegistroCliente extends javax.swing.JDialog {
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         // TODO add your handling code here:
         registrarCliente();
-
-        //System.exit(0);
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void txtPasswordCliKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordCliKeyReleased

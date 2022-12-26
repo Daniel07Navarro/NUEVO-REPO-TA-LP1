@@ -44,6 +44,11 @@ public class Login extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, mensaje);
     }
 
+    public void limpiarDatos(){
+        txtContraseña.setText("");
+        txtCorreo.setText("");
+    }
+    
     public void loginCliente() {
         if (txtCorreo.getText().equals("") || txtContraseña.getText().equals("")) {
             mensaje("RELLENE TODOS LOS CAMPOS");
@@ -153,7 +158,7 @@ public class Login extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -175,6 +180,7 @@ public class Login extends javax.swing.JFrame {
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
         loginCliente();
+        principal.mostrarBienvenida();
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void txtContraseñaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaKeyReleased
